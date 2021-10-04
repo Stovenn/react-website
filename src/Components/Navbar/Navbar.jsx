@@ -1,13 +1,15 @@
-import React from "react";
-import { Button } from "../Button/Button";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { theme } from "../../Theme";
 import { Link } from "react-router-dom";
+import { Burger } from "../Burger/Burger";
 
 export const Navbar = (props) => {
+    const [showLinks, setShowLinks] = useState(false)
   return (
     <StyledNav>
       <LeftContainer>
+      <Burger />
       <Logo>My logo</Logo>
         <LinksWrapper>
           <StyledLink to="/">Home</StyledLink>
