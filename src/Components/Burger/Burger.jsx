@@ -2,11 +2,14 @@ import React, {useState, useEffect} from 'react'
 import styled, {keyframes} from 'styled-components'
 import { theme } from '../../Theme'
 
-export const Burger = () => {
+export const Burger = (props) => {
     const [opened, setOpened] = useState(null)
 
     return (
-        <BurgerWrapper onClick={() => opened == null ? setOpened(true) : setOpened(!opened)}>
+        <BurgerWrapper onClick={() => {
+          opened == null ? setOpened(true) : setOpened(!opened)
+          props.toggleShow(!props.show)
+          }}>
             <Bar opened={opened} />
             <Bar opened={opened} />
             <Bar opened={opened} />
@@ -86,7 +89,7 @@ const BurgerWrapper = styled.div`
     justify-content: space-around;
     cursor: pointer;
     
-    
+
 `
 const Bar = styled.div`
     height: 4px;
@@ -96,18 +99,18 @@ const Bar = styled.div`
 
     &:nth-child(1){
         animation-name: ${props => (props.opened === null ? '' : props.opened ? openAnimation1 : closeAnimation1)};
-        animation-duration: 1s;
+        animation-duration: 0.8s;
         animation-fill-mode: forwards;
     }
 
     &:nth-child(2){
         animation-name: ${props =>(props.opened === null ? '' : props.opened ? openAnimation2 : closeAnimation2)};
-        animation-duration: 1s;
+        animation-duration: 0.8s;
         animation-fill-mode: forwards;
     }
     &:nth-child(3){
         animation-name: ${props =>(props.opened === null ? '' : props.opened ? openAnimation3 : closeAnimation3)};
-        animation-duration: 1s;
+        animation-duration: 0.8s;
         animation-fill-mode: forwards;
     }
 `
