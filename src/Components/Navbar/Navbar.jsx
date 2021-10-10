@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../Theme";
 import { Link } from "react-router-dom";
 import { Burger } from "../Burger/Burger";
-import useWindowDimensions from "../../Hooks/useWindowDimensions";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 export const Navbar = (props) => {
   const [showLinks, setShowLinks] = useState(false);
