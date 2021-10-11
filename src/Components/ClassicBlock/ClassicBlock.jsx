@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { theme } from '../../Theme'
+import { style } from '../../Theme'
 import { Button } from '../Button/Button'
 
 export const ClassicBlock = (props) => {
 
     const {title, content, btnText} = props
+    const { md } = style.shared.sizes.button
     return (
         <BlockContainer>
             <Title>{title}</Title>
             <Content>{content}</Content>
-            <Button color={theme.primary} size={theme.md}>{btnText}</Button>
+            <Button size={md}>{btnText}</Button>
         </BlockContainer>
     )
 }
@@ -27,12 +28,12 @@ padding:0 15px;
 const Title = styled.h1`
     font-family: 'NotoSansJP-bold';
     font-size: 2.3rem;
-    color: ${theme.secondary}
+    color: ${props => props.theme.secondary}
 `
 
 const Content = styled.p`
     font-family: 'Raleway-regular';
 
-    color: ${theme.primary};
+    color: ${props => props.theme.primary};
     letter-spacing: 1px;
 `

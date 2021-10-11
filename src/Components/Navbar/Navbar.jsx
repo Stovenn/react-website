@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from "react";
-import styled, { css } from "styled-components";
-import { theme } from "../../Theme";
+import styled, { css, withTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { Burger } from "../Burger/Burger";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import { style } from "../../Theme";
 
-export const Navbar = (props) => {
+export const Navbar = withTheme((props) => {
   const [showLinks, setShowLinks] = useState(false);
-
   const { width } = useWindowDimensions();
 
-  useEffect(()=>{
-    if(width > 650){
-      setShowLinks(false)
+  useEffect(() => {
+    if (width > 650) {
+      setShowLinks(false);
     }
-  },[width])
+  }, [width]);
 
   return (
-    <StyledNav>
+    <StyledNav theme={props.theme}>
       <LeftContainer open={showLinks}>
         <LinksWrapper>
           <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/products">Products</StyledLink>
+          <StyledLink to="/hiraganas">Hiraganas</StyledLink>
           <StyledLink to="/about-us">About us</StyledLink>
         </LinksWrapper>
         {width <= 650 ? (
@@ -34,7 +33,8 @@ export const Navbar = (props) => {
       </RightContainer>
     </StyledNav>
   );
-};
+});
+
 const openedNavStyle = css`
   position: absolute;
   left: 0px;
@@ -42,32 +42,30 @@ const openedNavStyle = css`
   height: 230px;
   max-height: 230px;
   width: 100%;
-  background-color: ${theme.primary};
+  background-color: red;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
 `;
+const StyledLink = styled(Link)``;
 
 const StyledNav = styled.nav`
   height: 80px;
   width: 100vw;
-  background: ${theme.primary};
+  background: ${(props) => props.theme.colors.primary};
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
-`;
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${theme.white};
-  font-size: 1.1rem;
-  margin-left: 10px;
 
-  &:hover {
-    color: red;
-  }
+  ${StyledLink} {
+    text-decoration: none;
+    color: ${style.shared.colors.white};
+    font-size: 1.1rem;
+    margin-left: 10px;
 
-  @media only screen and (min-width: 750px) {
-    font-size: 20px;
+    @media only screen and (min-width: 750px) {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -101,9 +99,9 @@ const RightContainer = styled.div`
   padding-right: 25px;
 `;
 
-const Logo = styled.div`
-  font-size: 1.2rem;
-  color: ${theme.secondary};
-  letter-spacing: 1.2px;
-  margin: 0 25px;
-`;
+// const Logo = styled.div`
+//   font-size: 1.2rem;
+//   color: ${props => props.theme.secondary};
+//   letter-spacing: 1.2px;
+//   margin: 0 25px;
+// `;

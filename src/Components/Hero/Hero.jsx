@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../Theme'
+import { style } from '../../Theme'
 
 export const Hero = ({subcomponent}) => {
 
@@ -24,5 +24,5 @@ const Container = styled.section`
 const Block = styled.div`
     width: 40%;
     height: 300px;
-    background-color: ${theme.lightgrey};
+    background-color: ${style.shared.colors.black_light_30};
 `

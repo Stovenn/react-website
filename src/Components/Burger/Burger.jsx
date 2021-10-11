@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import styled, {keyframes} from 'styled-components'
-import { theme } from '../../Theme'
+import { style } from '../../Theme'
 
 export const Burger = (props) => {
     const [opened, setOpened] = useState(null)
@@ -93,7 +93,7 @@ const BurgerWrapper = styled.div`
 `
 const Bar = styled.div`
     height: 4px;
-    background: ${theme.white};
+    background: ${style.shared.colors.white};
     border-radius: 5px;
     
 

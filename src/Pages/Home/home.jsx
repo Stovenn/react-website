@@ -1,10 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { Hero } from "../../components/Hero/Hero";
 import { ClassicBlock } from "../../components/ClassicBlock/ClassicBlock";
 
 export const Home = (props) => {
-  let { id } = useParams();
 
   return (
     <div>
