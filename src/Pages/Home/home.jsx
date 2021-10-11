@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { Hero } from "../../components/Hero/Hero";
 import { ClassicBlock } from "../../components/ClassicBlock/ClassicBlock";
 
-export const Home = () => {
+export const Home = (props) => {
   let { id } = useParams();
 
   return (
     <div>
-      Bonjour
+      Bonjour, {props.isAuth ? "vous êtes connecté." : "vous n'êtes pas connecté."}
       <Hero
         subcomponent={() => {
           return (

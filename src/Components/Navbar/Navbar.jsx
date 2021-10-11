@@ -29,7 +29,7 @@ export const Navbar = (props) => {
         ) : null}
       </LeftContainer>
       <RightContainer>
-        <StyledLink to="/register">Register</StyledLink>
+        <StyledLink to="/profile">Profile</StyledLink>
         <StyledLink to="/login">Login</StyledLink>
       </RightContainer>
     </StyledNav>
