@@ -46,6 +46,11 @@ const CardWrapper = styled.div`
     width: 120px;
     height: 180px;
   }
+  @media only screen and (max-width: 750px){
+    width: 70%;
+    height: 400px;
+    margin-bottom: 10px;
+  }
 `;
 
 const CardBody = css`
